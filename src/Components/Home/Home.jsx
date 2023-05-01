@@ -9,7 +9,7 @@ const Home = () => {
         <div>
             
             {
-                data.map(allData => <AllData key={AllData.id} allData={allData}  />)
+                data.map(allData => <AllData key={allData.id} allData={allData}  />)
             }
         </div>
     );

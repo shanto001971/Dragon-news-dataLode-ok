@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import moment from 'moment';
 import { Button, Container, Nav } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
+import { authProvaider } from '../../AuthContex/AuthContex';
 
 const Header = () => {
+    const {user}=useContext(authProvaider)
+
     return (
         <Container>
             <div className="text-center">
@@ -39,7 +42,10 @@ const Header = () => {
                 </div>
                 <div className="">
 
-                    <Button className='mb-5' variant="danger">Login</Button>
+                    { user?
+                        <Button className='mb-5' variant="danger">Logout</Button>:
+                        <Button className='mb-5' variant="danger">Login</Button>
+                    }
                 </div>
             </div>
         </Container>
